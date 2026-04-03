@@ -504,6 +504,7 @@ body {
     position: relative;
     animation: fadeSlideUp 0.8s ease-out 0.2s both;
     padding-top: 1rem;
+    margin-left:auto;
 }
 
 .phone-mockup {
