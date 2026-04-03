@@ -390,12 +390,13 @@ body {
     grid-template-columns: 1fr 1fr;
     gap: 4rem;
     align-items: center;
-    position: relative;
-    z-index: 1;
+    justify-content: space-between; /* optional */
 }
 
 .hero-content {
     animation: fadeSlideUp 0.8s ease-out;
+    justify-self: start;
+    
 }
 
 @keyframes fadeSlideUp {
@@ -504,7 +505,7 @@ body {
     position: relative;
     animation: fadeSlideUp 0.8s ease-out 0.2s both;
     padding-top: 1rem;
-    margin-left:auto;
+    justify-self: end;
 }
 
 .phone-mockup {
@@ -2201,19 +2202,38 @@ body {
         padding: calc(72px + 2rem) 1rem 3rem;
         min-height: auto;
     }
+    .hero-container {
+        grid-template-columns: 1fr; /* single column */
+        text-align: center;
+    }
+   
+    .hero-content {
+        justify-self: center;
+    }
+
+
+
+    .hero-trust {
+
+    }
 
     .hero-title {
         font-size: 2rem;
     }
 
     .hero-visual {
+        flex-direction: column;
+        align-items: center;
         padding-top: 0.5rem;
         padding-bottom: 1rem;
+        justify-self: center;
+        margin-top: 2rem;
     }
 
     .hero-buttons {
         flex-direction: column;
         width: 100%;
+         justify-content: center;
     }
 
     .hero-buttons .btn {
@@ -2225,6 +2245,7 @@ body {
         flex-direction: column;
         gap: 0.75rem;
         align-items: center;
+        justify-content: center;
     }
 
     .phone-mockup {
@@ -2256,10 +2277,7 @@ body {
         margin: 0.5rem auto;
     }
 
-    .hero-visual {
-        flex-direction: column;
-        align-items: center;
-    }
+
 
     .section {
         padding: 4rem 1rem;
