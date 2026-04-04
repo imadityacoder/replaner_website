@@ -386,17 +386,21 @@ body {
 .hero-container {
     max-width: 1280px;
     margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
+    display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: space-between; /* optional */
+    justify-content: center;
+    gap: 4rem;
+    text-align: center;
+    flex-direction: row;
 }
 
 .hero-content {
-    animation: fadeSlideUp 0.8s ease-out;
-    justify-self: start;
-    
+    /* animation: fadeSlideUp 0.8s ease-out; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
 }
 
 @keyframes fadeSlideUp {
@@ -463,7 +467,7 @@ body {
 .hero-description {
     font-size: clamp(1rem, 2vw, 1.25rem);
     color: var(--text-muted);
-    margin-bottom: 2rem;
+    margin: 0 auto 2rem;
     max-width: 520px;
     line-height: 1.7;
 }
@@ -473,12 +477,14 @@ body {
     gap: 1rem;
     flex-wrap: wrap;
     margin-bottom: 2.5rem;
+    justify-content: center;
 }
 
 .hero-trust {
     display: flex;
     gap: 1.5rem;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
 .trust-item {
@@ -503,9 +509,8 @@ body {
     justify-content: center;
     align-items: flex-start;
     position: relative;
-    animation: fadeSlideUp 0.8s ease-out 0.2s both;
+    /* animation: fadeSlideUp 0.8s ease-out 0.2s both; */
     padding-top: 1rem;
-    justify-self: end;
 }
 
 .phone-mockup {
@@ -2081,30 +2086,15 @@ body {
 /* Desktop to Tablet (1024px and below) */
 @media (max-width: 1024px) {
     .hero-container {
-        grid-template-columns: 1fr;
         gap: 3rem;
-        text-align: center;
     }
 
-    .hero-content {
-        order: 2;
-    }
-
-    .hero-visual {
-        order: 1;
-    }
 
     .hero-description {
         margin: 0 auto 2rem;
     }
 
-    .hero-buttons {
-        justify-content: center;
-    }
 
-    .hero-trust {
-        justify-content: center;
-    }
 
     .stats-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -2178,7 +2168,8 @@ body {
 
     .floating-card,
     .floating-ui-card {
-        display: none;
+        transform: scale(0.85);
+        /* Responsive scaling */
     }
 }
 
@@ -2202,20 +2193,12 @@ body {
         padding: calc(72px + 2rem) 1rem 3rem;
         min-height: auto;
     }
+
     .hero-container {
-        grid-template-columns: 1fr; /* single column */
-        text-align: center;
-    }
-   
-    .hero-content {
-        justify-self: center;
+        flex-direction: column-reverse;
     }
 
 
-
-    .hero-trust {
-
-    }
 
     .hero-title {
         font-size: 2rem;
@@ -2233,7 +2216,7 @@ body {
     .hero-buttons {
         flex-direction: column;
         width: 100%;
-         justify-content: center;
+        justify-content: center;
     }
 
     .hero-buttons .btn {
@@ -2254,27 +2237,18 @@ body {
         margin: 0 auto;
     }
 
-    /* Show floating cards on mobile with adjusted positions */
-    .floating-card {
-        display: block !important;
-        position: relative;
-        margin: 1rem auto 0;
-        right: auto;
-        left: auto;
-        top: auto;
-        bottom: auto;
-        animation: none;
-        max-width: 200px;
+    /* Keep floating cards animated but scale them down */
+    .floating-card,
+    .floating-ui-card {
+        transform: scale(0.8) !important;
     }
 
-    .floating-card-1,
+    .floating-card-1 {
+        right: -30px !important;
+    }
+
     .floating-card-2 {
-        position: relative;
-        right: auto;
-        left: auto;
-        top: auto;
-        bottom: auto;
-        margin: 0.5rem auto;
+        left: -30px !important;
     }
 
 
