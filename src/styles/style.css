@@ -675,6 +675,7 @@ body {
     border-radius: 16px;
     padding: 1rem;
     box-shadow: var(--shadow-lg);
+    --floating-scale: 1;
     animation: float-card 6s ease-in-out infinite;
     border: 1px solid rgba(19, 42, 19, 0.06);
 }
@@ -695,11 +696,11 @@ body {
 
     0%,
     100% {
-        transform: translateY(0);
+        transform: translateY(0) scale(var(--floating-scale));
     }
 
     50% {
-        transform: translateY(-12px);
+        transform: translateY(-12px) scale(var(--floating-scale));
     }
 }
 
@@ -1390,6 +1391,7 @@ body {
     padding: 1rem 1.25rem;
     box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
     z-index: 3;
+    --floating-scale: 1;
     animation: float-ui 5s ease-in-out infinite;
     border: 1px solid rgba(19, 42, 19, 0.06);
 }
@@ -1416,11 +1418,11 @@ body {
 
     0%,
     100% {
-        transform: translateY(0) rotate(0deg);
+        transform: translateY(0) rotate(0deg) scale(var(--floating-scale));
     }
 
     50% {
-        transform: translateY(-12px) rotate(1deg);
+        transform: translateY(-12px) rotate(1deg) scale(var(--floating-scale));
     }
 }
 
@@ -2168,8 +2170,8 @@ body {
 
     .floating-card,
     .floating-ui-card {
-        transform: scale(0.85);
-        /* Responsive scaling */
+        --floating-scale: 0.85;
+        /* Responsive scaling while preserving float animation */
     }
 }
 
@@ -2240,7 +2242,7 @@ body {
     /* Keep floating cards animated but scale them down */
     .floating-card,
     .floating-ui-card {
-        transform: scale(0.8) !important;
+        --floating-scale: 0.8 !important;
     }
 
     .floating-card-1 {
